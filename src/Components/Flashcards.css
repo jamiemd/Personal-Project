@@ -1,0 +1,24 @@
+.wrapper {
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  text-align: center;
+}
+
+.image {
+  width: 400px;
+  height: 300px;
+  margin: auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.button {
+  background-color: gray;
+  width: 100px;
+  margin: 0px 5px 0px 5px;
+}
