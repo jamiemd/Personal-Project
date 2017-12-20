@@ -1,12 +1,23 @@
 import { GET_CARDS, NEXT_CARD } from "../Actions";
 
-export default (flashcards = [], action) => {
+const initialState = {
+  data: [],
+  currentIndex: 0
+};
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case GET_CARDS:
-      return action.payload;
+      return {
+        data: action.payload,
+        currentIndex: state.currentIndex
+      };
     case NEXT_CARD:
-      return action.payload.data;
+      return {
+        data: state.data,
+        currentIndex: state.currentIndex + 1
+      };
     default:
-      return flashcards;
+      return state;
   }
 };

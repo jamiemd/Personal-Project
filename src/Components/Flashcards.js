@@ -9,13 +9,24 @@ class Flashcards extends Component {
     this.props.getCards();
   }
 
-  handleButtonClick = e => {};
+  handleButtonClick = e => {
+    this.props.nextCard();
+  };
 
   handleCardClick = e => {};
 
   render() {
+    console.log("this.props.flashcards", this.props.flashcards);
+
+    if (this.props.flashcards.data.length === 0) return null;
+    const currentFlashcard = this.props.flashcards.data[
+      this.props.flashcards.currentIndex
+    ];
+    console.log("currentFlashcard", currentFlashcard);
+
     return (
       <div className="wrapper">
+        <div className="flashcard">{currentFlashcard.english}</div>
         <button className="button" onClick={this.handleButtonClick}>
           No
         </button>
