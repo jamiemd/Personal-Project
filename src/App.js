@@ -1,36 +1,28 @@
 import React, { Component } from "react";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+
 import "./App.css";
-//import Signup from "./Components/Logins/Signup";
-//import Login from "./Components/Logins/Login";
+
+import Home from "./Components/Home";
+import Signup from "./Components/Signup";
+import Login from "./Components/Login";
 import Flashcards from "./Components/Flashcards";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loggedIn: "no"
-    };
-  }
-
-  handleLogIn = () => {
-    this.setState({ loggedIn: "yes" });
-    console.log("successfully logged in");
-  };
-
-  handleFlashCard = () => {
-    this.setState({});
-  };
-
   render() {
     return (
       <div className="App">
-        <h1> Tagalog! </h1>
-        {/*<div className="status">Logged in status is: {this.state.loggedIn}</div>*/}
-        {/*<Login onLogin={this.handleLogIn} />*/}
-        <Flashcards />
+        <BrowserRouter>
+          <div>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/flashcards" component={Flashcards} />
+          </div>
+        </BrowserRouter>
       </div>
     );
   }
 }
-//<Signup onLogin={this.handleLogIn}/>
+
 export default App;

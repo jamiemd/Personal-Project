@@ -1,38 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./Flashcards.css";
-import { nextCard } from "../Actions";
+import "./Stylesheets/Flashcards.css";
+import { getCards, nextCard } from "../Actions";
+import { Data } from "../Data";
 
 class Flashcards extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentCard: "",
-      nextCard: ""
-    };
+  componentDidMount() {
+    this.props.getCards();
   }
 
-  nextCard = e => {
-    this.props.nextCard({});
-  };
+  handleButtonClick = e => {};
+
+  handleCardClick = e => {};
 
   render() {
     return (
       <div className="wrapper">
-        <div className="image">
-          <img src="" alt="card" />
-        </div>
-        <div className="buttons">
-          <button className="button" type="button" onClick={this.handleClick}>
-            Bad
-          </button>
-          <button className="button" type="button">
-            Ok
-          </button>
-          <button className="button" type="button">
-            Good
-          </button>
-        </div>
+        <button className="button" onClick={this.handleButtonClick}>
+          No
+        </button>
+        <button className="button" onClick={this.handleButtonClick}>
+          Ok
+        </button>
+        <button className="button" onClick={this.handleButtonClick}>
+          Yes
+        </button>
       </div>
     );
   }
@@ -42,4 +34,4 @@ const mapStateToProps = state => {
   return { flashcards: state.flashcards };
 };
 
-export default connect(mapStateToProps)(Flashcards);
+export default connect(mapStateToProps, { getCards, nextCard })(Flashcards);

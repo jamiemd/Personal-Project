@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Stylesheets/loginsignup.css";
 
 class Signup extends Component {
   constructor() {

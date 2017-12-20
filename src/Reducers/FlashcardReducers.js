@@ -1,12 +1,11 @@
-import { NEXT_CARD } from "../Actions";
-import { Data } from "../Data";
+import { GET_CARDS, NEXT_CARD } from "../Actions";
 
-const defaultData = Data;
-
-export default (flashcards = defaultData, action) => {
+export default (flashcards = [], action) => {
   switch (action.type) {
+    case GET_CARDS:
+      return action.payload;
     case NEXT_CARD:
-      return flashcards;
+      return action.payload.data;
     default:
       return flashcards;
   }
