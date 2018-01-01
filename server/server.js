@@ -38,6 +38,10 @@ app.get("/api/flashcards", (req, res) => {
   res.status(200).json(flashcards);
 });
 
+app.get("/api/flashcards", (req, res) => {
+  res.status(200).json(flashcards);
+});
+
 app.listen(5000, () => {
   console.log("Server listening on port 5000");
 });

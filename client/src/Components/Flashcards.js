@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./Stylesheets/Flashcards.css";
-import { getCards, nextCard } from "../Actions";
+import { getCards, nextCard, toggleLanguage } from "../Actions";
 
 class Flashcards extends Component {
   componentDidMount() {
@@ -12,20 +12,28 @@ class Flashcards extends Component {
     this.props.nextCard();
   };
 
-  handleCardClick = e => {};
+  handleCardClick = e => {
+    this.props.toggleLanguage();
+  };
 
   render() {
-    // console.log("this.props", this.props.flashcards.data[0]);
-
-    if (this.props.flashcards.data.length === 0) return null;
-    const currentFlashcard = this.props.flashcards.data[
+    // console.log("this.props", this.props);
+    //get index
+    if (this.props.flashcards.data.length === 0) return null; // if no cards then return null
+    let currentFlashcard = this.props.flashcards.data[
       this.props.flashcards.currentIndex
     ];
-    // console.log("currentFlashcard", currentFlashcard);
+    console.log("currentFlashcard", currentFlashcard);
+    console.log(
+      "this.props.flashcards.currentLanguage",
+      this.props.flashcards.currentLanguage
+    );
 
     return (
       <div className="wrapper">
-        <div className="flashcard">{this.props.flashcards.data[0].english}</div>
+        <div className="flashcard" onClick={this.handleCardClick}>
+          {currentFlashcard[this.props.flashcards.currentLanguage]}
+        </div>
         <button className="button" onClick={this.handleButtonClick}>
           No
         </button>
@@ -44,4 +52,6 @@ const mapStateToProps = state => {
   return { flashcards: state.flashcards };
 };
 
-export default connect(mapStateToProps, { getCards, nextCard })(Flashcards);
+export default connect(mapStateToProps, { getCards, nextCard, toggleLanguage })(
+  Flashcards
+);
