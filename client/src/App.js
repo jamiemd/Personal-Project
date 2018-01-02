@@ -5,6 +5,7 @@ import Home from "./Components/Home";
 import Signup from "./Components/Signup";
 import Login from "./Components/Login";
 import Flashcards from "./Components/Flashcards";
+import DeckHome from "./Components/DeckHome";
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact path="/deckhome" component={DeckHome} />
             <Route exact path="/flashcards" component={Flashcards} />
           </div>
         </BrowserRouter>

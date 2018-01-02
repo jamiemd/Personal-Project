@@ -1,9 +1,9 @@
-import { GET_CARDS, NEXT_CARD, TOGGLE_LANGUAGE } from "../Actions";
+import { GET_CARDS, NEXT_CARD, TOGGLE_LANGUAGE, SHOW_ANSWER } from "../Actions";
 
 const initialState = {
   data: [],
   currentIndex: 0,
-  currentLanguage: "english"
+  cardSide: "front"
 };
 
 export default (state = initialState, action) => {
@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
     case GET_CARDS:
       //console.log("action.payload.data[0].id", action.payload.data[0].id, "");
       //console.log("action.payload.data", action.payload.data);
-      //console.log("action.payload", action.payload);
+      // console.log("action.payload", action.payload);
       return {
         ...state,
         data: action.payload.data,
@@ -23,15 +23,24 @@ export default (state = initialState, action) => {
       return {
         ...state,
         data: state.data,
-        currentIndex: state.currentIndex + 1
+        currentIndex: state.currentIndex + 1,
+        cardSide: "front"
       };
-    case TOGGLE_LANGUAGE:
-      // console.log("state.currentLanguage", state.currentLanguage);
-      if (state.currentLanguage === "english") {
-        state.currentLanguage = "tagalog";
-      } else {
-        state.currentLanguage = "english";
-      }
+    case SHOW_ANSWER:
+      console.log("state.data", state.data);
+      console.log("cardSide", state.cardSide);
+      return {
+        ...state,
+        data: state.data,
+        cardSide: "back"
+      };
+      // case TOGGLE_LANGUAGE:
+      //   // console.log("state.currentLanguage", state.currentLanguage);
+      //   if (state.currentLanguage === "english") {
+      //     state.currentLanguage = "tagalog";
+      //   } else {
+      //     state.currentLanguage = "english";
+      //   }
       return {
         ...state,
         data: state.data,

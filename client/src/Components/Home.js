@@ -5,8 +5,8 @@ import "./Stylesheets/home.css";
 function Home() {
   return (
     <div className="home">
-      <h1> Tagalog! </h1>
-      <Link to="/flashcards">Deck 1</Link>
+      <h1> Tagalog Flashcards! </h1>
+      <Link to="/DeckHome">Decks</Link>
     </div>
   );
 }
