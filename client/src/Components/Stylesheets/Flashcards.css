@@ -1,8 +1,26 @@
-.wrapper {
+.pageWrapper {
   margin: auto;
   width: 50%;
   height: 50%;
+  padding-top: 30px;
+}
+
+.topWrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.wrapperFlashcard {
   text-align: center;
+}
+
+.homeButton {
+  padding-left: 30px;
+  padding-top: 30px;
+}
+
+.stats {
+  padding-right: 30px;
+  padding-top: 30px;
 }
 
 .image {
@@ -26,4 +44,25 @@
 
 .flashcard {
   padding: 200px;
+  font-size: 40px;
+}
+
+.top {
+  color: black;
+  padding: 20px;
+}
+
+.bottom {
+  color: gray;
+  padding: 20px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: black;
+}
+
+.results {
+  text-align: center;
 }

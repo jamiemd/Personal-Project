@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         data: action.payload.data,
-        currentIndex: state.currentIndex
+        currentIndex: 0
       };
     case NEXT_CARD:
       // console.log("state.data", state.data);
@@ -27,8 +27,8 @@ export default (state = initialState, action) => {
         cardSide: "front"
       };
     case SHOW_ANSWER:
-      console.log("state.data", state.data);
-      console.log("cardSide", state.cardSide);
+      // console.log("state.data", state.data);
+      // console.log("cardSide", state.cardSide);
       return {
         ...state,
         data: state.data,

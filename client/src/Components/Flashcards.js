@@ -19,7 +19,7 @@ class Flashcards extends Component {
   };
 
   render() {
-    console.log("this.props", this.props);
+    // console.log("this.props", this.props);
     // console.log(
     //   "this.props.flashcards.currentLanguage",
     //   this.props.flashcards.currentLanguage
@@ -29,49 +29,59 @@ class Flashcards extends Component {
     let currentFlashcard = this.props.flashcards.data[ //shorten
       this.props.flashcards.currentIndex
     ];
-    if (currentFlashcard === undefined) return;
-    null; // ran through all cards and return null
-    // <div className="wrapper">
-    //   return to deck home{" "}
-    //   <div>
-    //     <Link to="/deckhome">Deck Home</Link>
-    //   </div>
-    // </div>
+    if (currentFlashcard === undefined)
+      return (
+        <div className="results">
+          Results Page<div>
+            <Link to="/DeckHome">Home</Link>
+          </div>
+        </div>
+      ); // ran through all cards and return null
+
     // console.log("currentFlashcard", currentFlashcard.english);
     // console.log(
     //   "this.props.flashcards.currentLanguage",
     //   this.props.flashcards.currentLanguage
     // );
-    console.log(
-      "this.props.flashcards.cardSide",
-      this.props.flashcards.cardSide
-    );
+    // console.log(
+    //   "this.props.flashcards.cardSide",
+    //   this.props.flashcards.cardSide
+    // );
     if (this.props.flashcards.cardSide === "front") {
       return (
-        <div className="wrapper">
-          <Link to="/">x</Link>
-          <div className="flashcard" onClick={this.handleCardClick}>
-            {currentFlashcard.english}
+        <div className="pageWrapper">
+          <div className="topWrapper">
+            <div className="stats"> {currentFlashcard.id}</div>
+          </div>
+          <div className="wrapperFlashcard">
+            <div className="flashcard" onClick={this.handleCardClick}>
+              {currentFlashcard.english}
+            </div>
           </div>
         </div>
       );
     } else {
       return (
-        <div className="wrapper">
-          <Link to="/">x</Link>
-          <div className="flashcard">
-            {currentFlashcard.english}
-            <div>{currentFlashcard.tagalog}</div>
+        <div className="pageWrapper">
+          <div className="topWrapper">
+            <div className="stats"> {currentFlashcard.id}</div>
           </div>
-          <button className="button" onClick={this.handleButtonClick}>
-            No
-          </button>
-          <button className="button" onClick={this.handleButtonClick}>
-            Ok
-          </button>
-          <button className="button" onClick={this.handleButtonClick}>
-            Yes
-          </button>
+          <div className="wrapperFlashcard">
+            <div className="flashcard">
+              <div className="top">{currentFlashcard.english}</div>
+              <div className="divider" />
+              <div className="bottom">{currentFlashcard.tagalog}</div>
+            </div>
+            <button className="button" onClick={this.handleButtonClick}>
+              No
+            </button>
+            <button className="button" onClick={this.handleButtonClick}>
+              Ok
+            </button>
+            <button className="button" onClick={this.handleButtonClick}>
+              Yes
+            </button>
+          </div>
         </div>
       );
     }
