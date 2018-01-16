@@ -1,17 +1,24 @@
-const fs = require("fs");
+const fs = require("fs"); // read files on computer
 
 let savedCards = null;
 
+const Flashcards = require("./flashcards.js");
+
+// read flashcards from json file
 const readCards = () => {
   if (!savedCards) {
-    const contents = fs.readFilesSync("flashcards.json", "utf8");
-    savedCards = JSON.parse(contents);
+    const contents = fs.readFileSync("../flashcards.json", "utf8");
+    savedCards = JSON.parse(contents); // turns file into object
   }
-  return savedPosts;
+  return savedCards;
 };
 
-// const populateCards = () => {
-//   const allCards = readCards();
-//   const promises = allCards.map(p => new Post(p).save());
-//   return Promise.all(promises);
-// };
+// save to database
+const populateCards = () => {
+  const allCards = readCards();
+  const promises = allCards.map(p => new Flashcards(p).save());
+  return Promise.all(promises); // wait for save to be done
+};
+
+// run node populate.js to populate initial data
+populateCards();

@@ -5,6 +5,7 @@ export const NEXT_CARD = "NEXT_CARD";
 export const SHOW_ANSWER = "SHOW_ANSWER";
 export const TOGGLE_LANGUAGE = "TOGGLE_LANGUAGE";
 
+// get flashcards from server
 export const getCards = () => {
   const apiUrl = "http://localhost:5000/api/flashcards";
   const moviesRequest = axios.get(apiUrl);
