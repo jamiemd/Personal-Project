@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./Stylesheets/Flashcards.css";
-import { getCards, nextCard, showAnswer } from "../Actions";
+import { getCards, nextCard, showAnswer } from "../Actions/flashcards";
 import { Link } from "react-router-dom";
 
 class Flashcards extends Component {
@@ -25,6 +25,7 @@ class Flashcards extends Component {
     //   this.props.flashcards.currentLanguage
     // );
     //get index
+    console.log('this.props.flashcards', this.props.flashcards)
     if (this.props.flashcards.data.length === 0) return null; // if no cards then return null
     let currentFlashcard = this.props.flashcards.data[ //shorten
       this.props.flashcards.currentIndex

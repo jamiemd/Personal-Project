@@ -7,11 +7,16 @@ export const TOGGLE_LANGUAGE = "TOGGLE_LANGUAGE";
 
 // get flashcards from server
 export const getCards = () => {
-  const apiUrl = "http://localhost:5000/api/flashcards";
-  const moviesRequest = axios.get(apiUrl);
-  return {
-    type: GET_CARDS,
-    payload: moviesRequest
+  return dispatch => {
+    const apiUrl = "http://localhost:5000/api/flashcards";
+    const flashcardRequest = axios
+      .get(apiUrl)
+      .then(response => {
+        dispatch({
+          type: GET_CARDS,
+          payload: response.data
+        });
+      });
   };
 };
 

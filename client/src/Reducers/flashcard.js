@@ -1,4 +1,4 @@
-import { GET_CARDS, NEXT_CARD, TOGGLE_LANGUAGE, SHOW_ANSWER } from "../Actions";
+import { GET_CARDS, NEXT_CARD, TOGGLE_LANGUAGE, SHOW_ANSWER } from "../Actions/flashcards";
 
 const initialState = {
   data: [],
@@ -11,10 +11,10 @@ export default (state = initialState, action) => {
     case GET_CARDS:
       //console.log("action.payload.data[0].id", action.payload.data[0].id, "");
       //console.log("action.payload.data", action.payload.data);
-      console.log("action.payload", action.payload);
+      console.log("action", action);
       return {
         ...state,
-        data: action.payload.data,
+        data: action.payload,
         currentIndex: 0
       };
     case NEXT_CARD:

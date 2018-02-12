@@ -3,8 +3,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./App.css";
 import Home from "./Components/Home";
-import Signup from "./Components/Signup";
-import Login from "./Components/Login";
+import SignUp from "./Components/SignUp";
+import SignIn from "./Components/SignIn";
 import Flashcards from "./Components/Flashcards";
 import DeckHome from "./Components/DeckHome";
 
@@ -21,8 +21,8 @@ class App extends Component {
             </div>
             <div>
               <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/signin" component={SignIn} />
+              <Route exact path="/signup" component={SignUp} />
               <Route exact path="/deckhome" component={DeckHome} />
               <Route exact path="/flashcards" component={Flashcards} />
             </div>

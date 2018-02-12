@@ -1,27 +1,34 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const CORS = require("cors");
+const bodyParser = require('body-parser');
+const express = require('express');
+const session = require('express-session');
+const bcrypt = require('bcrypt');
+const { sendUserError,
+  hashedPassword,
+  loggedIn,
+  restrictedPermissions } = require('./middleWare');
+const cors = require('cors');
+const routes = require('./routes');
 
-const Flashcards = require("./flashcards.js");
+const STATUS_USER_ERROR = 422;
+const BCRYPT_COST = 11;
 
-const app = express();
-app.use(bodyParser.json());
-app.use(CORS());
+const server = express();
 
-app.get("/api/flashcards", (req, res) => {
-  Flashcards.find({})
-    .then(function(flashcards) {
-      res.status(200).json(flashcards);
-    })
-    .catch(function() {
-      res.status(500).json({ error: "The information could not be retrieved" });
-    });
-});
+server.use(bodyParser.json());
 
-app.get("/api/Flashcards", (req, res) => {
-  res.status(200).json(Flashcards);
-});
+const corsOptions = {
+  "origin": "http://localhost:3000",
+  "credentials": true
+};
 
-app.listen(5000, () => {
-  console.log("Server listening on port 5000");
-});
+server.use(cors(corsOptions));
+
+server.use(session({
+  secret: 'e5SPiqsEtjexkTj3Xqovsjzq8ovjfgVDFMfUzSmJO21dtXs4re',
+  resave: true,
+  saveUninitialized: true,
+}));
+
+routes(server)
+
+server.listen(5000); 
