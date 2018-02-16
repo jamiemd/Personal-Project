@@ -2,7 +2,6 @@
   margin: auto;
   width: 50%;
   height: 50%;
-  padding-top: 30px;
 }
 
 .topWrapper {
@@ -15,11 +14,6 @@
 
 .homeButton {
   padding-left: 30px;
-  padding-top: 30px;
-}
-
-.stats {
-  padding-right: 30px;
   padding-top: 30px;
 }
 
@@ -43,7 +37,7 @@
 }
 
 .flashcard {
-  padding: 200px;
+  padding: 150px;
   font-size: 40px;
 }
 

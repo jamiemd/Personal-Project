@@ -12,7 +12,7 @@ const { sendUserError, hashedPassword, loggedIn } = require('./middleware');
 const routes = (server) => {
 
     // signin user
-    server.post('/api/login', (req, res) => {
+    server.post('/api/signin', (req, res) => {
         const { username, password } = req.body;
         if (!username) {
             sendUserError('Username undefined', res);
@@ -40,7 +40,7 @@ const routes = (server) => {
     });
 
     // signup user
-    server.post('/api/users', hashedPassword, (req, res) => {
+    server.post('/api/signup', hashedPassword, (req, res) => {
         console.log('register called')
         const { username } = req.body;
         const passwordHash = req.password;
@@ -51,7 +51,6 @@ const routes = (server) => {
                 res.json({ 'Need both username/PW fields': err.message });
                 return;
             }
-
             res.json(savedUser);
         });
     });

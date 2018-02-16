@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import "./Stylesheets/loginsignup.css";
+import "./Stylesheets/auth.css";
 import { reduxForm, Field } from 'redux-form';
 import { signin } from '../Actions/auth';
 import { connect } from 'react-redux';
 
 class SignIn extends Component {
   handleFormSubmit({ email, password }) {
-    this.props.login(email, password, this.props.history);
+    this.props.signin(email, password, this.props.history);
   }
 
   renderAlert() {
@@ -35,7 +35,6 @@ class SignIn extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('state', state);
   return {
     error: state.auth.error,
     authenticated: state.auth.authenticated

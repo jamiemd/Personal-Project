@@ -1,14 +1,25 @@
 .App {
-  background: #f8f8f8;
+  margin: auto;
+  background-color:#F5F5F5;
 }
 
-.navBar {
+.navContainer {
   background: #ffa500;
-  height: 45px;
+  height: 50px;
+  margin-bottom: 25px;
 }
 
 .nav {
   width: 800px;
-  margin: auto;
+  display: flex;
+  justify-content: space-between;
   padding-top: 10px;
+  margin: auto;
+  text-decoration: none;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  margin-top: 5px;
 }

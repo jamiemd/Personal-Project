@@ -5,7 +5,7 @@ export default ComposedComponent => {
     class RequireAuthentication extends Component {
         componentWillMount() {
             if (!this.props.authenticated) {
-                this.props.history.push('/login');
+                this.props.history.push('/signin');
             }
         }
 

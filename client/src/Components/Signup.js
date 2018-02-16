@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
-import "./Stylesheets/loginsignup.css";
+import "./Stylesheets/auth.css";
 import { register } from "../Actions/auth";
 
 class SignUp extends Component {
@@ -21,16 +21,16 @@ class SignUp extends Component {
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} >
         <fieldset>
-          <label>Email:
-          </label><Field name="username" component="input" type="text" />
+          <label>Email:</label>
+          <Field name="username" component="input" type="text" />
         </fieldset>
         <fieldset>
-          <label>Password:
-        </label><Field name="password" component="input" type="password" />
+          <label>Password:</label>
+          <Field name="password" component="input" type="password" />
         </fieldset>
         <fieldset>
-          <label>Confirm Password:
-          </label><Field name="confirmPassword" component="input" type="password" />
+          <label>Confirm Password:</label>
+          <Field name="confirmPassword" component="input" type="password" />
         </fieldset>
         <button action="submit">Sign In</button>
         {this.renderAlert()}

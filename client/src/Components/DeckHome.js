@@ -5,10 +5,13 @@ import "./Stylesheets/DeckHome.css";
 function DeckHome() {
   return (
     <div className="deckhome">
-      <h1> 1 - 100 </h1>
+      <Link to="/home">X</Link>
+      <h1> Days of the Week </h1>
       <Link to="/flashcards">Start</Link>
     </div>
   );
 }
 
 export default DeckHome;
+
+// lists stats

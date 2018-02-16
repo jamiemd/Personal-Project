@@ -11,7 +11,6 @@ export default (state = initialState, action) => {
     case GET_CARDS:
       //console.log("action.payload.data[0].id", action.payload.data[0].id, "");
       //console.log("action.payload.data", action.payload.data);
-      console.log("action", action);
       return {
         ...state,
         data: action.payload,

@@ -1,0 +1,16 @@
+.cardContainer {
+    width: 800px;
+    height: 600px;
+    margin: auto;
+    text-align: right;
+    border-radius: 20px;
+    background-color:white;
+
+  }
+
+.exit {
+  margin-right: 30px;
+  text-align: right;
+  text-decoration: none;
+}
+  

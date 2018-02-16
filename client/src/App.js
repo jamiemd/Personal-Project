@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./App.css";
-import Home from "./Components/Home";
+import UnAuthHome from "./Components/UnAuthHome";
+import AuthHome from "./Components/AuthHome";
 import SignUp from "./Components/SignUp";
 import SignIn from "./Components/SignIn";
 import Flashcards from "./Components/Flashcards";
@@ -14,13 +15,15 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <div>
-            <div className="navBar">
+            <div className="navContainer">
               <div className="nav">
-                <Link to="/">WikaKita</Link>
+                <Link className="link" to="/">WikaKita</Link>
+                <Link className="link" to="/">Logout</Link>
               </div>
             </div>
             <div>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={UnAuthHome} />
+              <Route exact path="/home" component={AuthHome} />
               <Route exact path="/signin" component={SignIn} />
               <Route exact path="/signup" component={SignUp} />
               <Route exact path="/deckhome" component={DeckHome} />

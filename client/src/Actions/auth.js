@@ -25,12 +25,12 @@ export const register = (username, password, confirmPassword, history) => {
             return;
         }
         axios
-            .post(`${ROOT_URL}/users`, { username, password })
+            .post(`${ROOT_URL}/signup`, { username, password })
             .then(res => {
                 dispatch({
                     type: USER_REGISTERED
                 });
-                history.push('/signup');
+                history.push('/home');
             })
             .catch(() => {
                 dispatch(authError('Failed to register user'));
@@ -46,7 +46,7 @@ export const signin = (username, password, history) => {
                 dispatch({
                     type: USER_AUTHENTICATED
                 });
-                history.push('/users');
+                history.push('/home');
             })
             .catch(() => {
                 dispatch(authError('Incorrect email/password combo'));
