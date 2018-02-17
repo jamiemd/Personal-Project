@@ -1,27 +1,6 @@
-.pageWrapper {
+.wrapper {
   margin: auto;
-  width: 50%;
-  height: 50%;
-}
-
-.topWrapper {
-  display: flex;
-  justify-content: space-around;
-}
-.wrapperFlashcard {
   text-align: center;
-}
-
-.homeButton {
-  padding-left: 30px;
-  padding-top: 30px;
-}
-
-.image {
-  width: 400px;
-  height: 300px;
-  margin: auto;
-  background-color: green;
 }
 
 .buttons {
@@ -36,26 +15,27 @@
   margin: 0px 5px 0px 5px;
 }
 
-.flashcard {
-  padding: 150px;
+.topWord {
+  color: black;
+  padding-top: 150px;
+  padding-bottom: 10px;
   font-size: 40px;
 }
 
-.top {
-  color: black;
-  padding: 20px;
-}
-
-.bottom {
-  color: gray;
-  padding: 20px;
-}
-
 .divider {
-  width: 100%;
+  margin: auto;
+  width: 50%;
   height: 1px;
   background: black;
 }
+
+.bottomWord {
+  color: gray;
+  font-size: 40px;
+  padding-top: 10px;
+  padding-bottom: 120px;
+}
+
 
 .results {
   text-align: center;

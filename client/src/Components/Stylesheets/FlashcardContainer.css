@@ -1,16 +1,18 @@
 .cardContainer {
-    width: 800px;
-    height: 600px;
-    margin: auto;
-    text-align: right;
-    border-radius: 20px;
-    background-color:white;
+  width: 800px;
+  height: 500px;
+  margin: auto;
+  border-radius: 20px;
+  background-color: white;
+}
 
-  }
 
-.exit {
-  margin-right: 30px;
+.exitContainer {
+  padding-top: 15px;
+  padding-right: 20px;
   text-align: right;
-  text-decoration: none;
 }
   
+.exit {
+  text-decoration: none;
+}

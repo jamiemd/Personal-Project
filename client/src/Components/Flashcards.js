@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import "./Stylesheets/Flashcards.css";
 import { getCards, nextCard, showAnswer } from "../Actions/flashcards";
 import { Link } from "react-router-dom";
-import FlashcardContainer from "./FlashcardContainer";
 
 class Flashcards extends Component {
   componentDidMount() {
@@ -42,23 +41,18 @@ class Flashcards extends Component {
 
     if (this.props.flashcards.cardSide === "front") {
       return (
-        <div className="topWrapper">
-          <FlashcardContainer />
-          <div>
-            {this.props.flashcards.currentIndex}
-          </div>
-          <div className="flashcard" onClick={this.handleCardClick}>
-            {currentFlashcard.english}
-          </div>
+        <div className="wrapper">
+          {/* <div>{this.props.flashcards.currentIndex}</div> */}
+          <div className="topWord" onClick={this.handleCardClick}>{currentFlashcard.english}</div>
         </div >
       );
     } else {
       return (
-        <div className="pageWrapper">
-          <div className="stats"> {this.props.flashcards.currentIndex}</div>
-          <div className="flashcard" className="top">{currentFlashcard.english}</div>
+        <div className="wrapper">
+          {/* <div className="stats"> {this.props.flashcards.currentIndex}</div> */}
+          <div className="topWord">{currentFlashcard.english}</div>
           <div className="divider" />
-          <div className="flashcard" className="bottom">{currentFlashcard.tagalog}</div>
+          <div className="bottomWord">{currentFlashcard.tagalog}</div>
           <div className="buttons">
             <button className="button" onClick={this.handleButtonClick}>No</button>
             <button className="button" onClick={this.handleButtonClick}>Ok</button>

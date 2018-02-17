@@ -4,7 +4,7 @@ import { reduxForm, Field } from 'redux-form';
 import "./Stylesheets/auth.css";
 import { register } from "../Actions/auth";
 
-class SignUp extends Component {
+class Register extends Component {
 
   renderAlert = () => {
     if (!this.props.error) return null;
@@ -46,9 +46,9 @@ const mapStateToProps = state => {
   };
 };
 
-SignUp = connect(mapStateToProps, { register })(SignUp);
+Register = connect(mapStateToProps, { register })(Register);
 
 export default reduxForm({
   form: 'signup',
   fields: ['username', 'password', 'confirmPassword']
-})(SignUp);
+})(Register);
