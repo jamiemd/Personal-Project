@@ -20,6 +20,7 @@ class App extends Component {
               <div className="nav">
                 <Link className="link" to="/">WikaKita</Link>
                 <Link className="link" to="/">Logout</Link>
+                <Link className="link" to="/home">home</Link>
               </div>
             </div>
             <div>
