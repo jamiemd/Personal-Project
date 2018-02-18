@@ -10,6 +10,8 @@ import Flashcards from "./Components/Flashcards";
 import DeckHome from "./Components/DeckHome";
 import FlashcardContainer from "./Components/FlashcardContainer";
 import RequireAuthentication from './Components/HOC/RequiredAuth';
+import HeaderLogo from "./Components/HeaderLogo"
+import SignOut from "./Components/SignOut"
 
 
 class App extends Component {
@@ -20,8 +22,8 @@ class App extends Component {
           <div>
             <div className="navContainer">
               <div className="nav">
-                <Link className="link" to="/">WikaKita</Link>
-                <Link className="link" to="/">Logout</Link>
+                <HeaderLogo />
+                <SignOut />
               </div>
             </div>
             <div>
@@ -40,3 +42,4 @@ class App extends Component {
 }
 
 export default App;
+

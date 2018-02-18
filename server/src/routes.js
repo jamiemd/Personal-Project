@@ -57,7 +57,7 @@ const routes = (server) => {
     });
 
     // signout user
-    server.post('/api/logout', (req, res) => {
+    server.post('/api/signout', (req, res) => {
         if (!req.session.username) {
             sendUserError('User is not logged in', res);
             return;

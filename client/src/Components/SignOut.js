@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import { logout } from '../Actions/auth';
+import { signout } from '../Actions/auth';
 
 class SignOut extends Component {
     componentWillMount() {
-        this.props.logout();
+        console.log('signoutprops', this.props);
+        this.props.signout();
     }
 
     render() {
-        return <div>You have signed out</div>;
+        return (
+            <Link className="link" to="/">Sign Out</Link>
+        )
     }
 }
 
-export default connect(null, { logout })(SignOut);
+export default connect(null, { signout })(SignOut);
