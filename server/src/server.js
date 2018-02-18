@@ -9,9 +9,6 @@ const { sendUserError,
 const cors = require('cors');
 const routes = require('./routes');
 
-const STATUS_USER_ERROR = 422;
-const BCRYPT_COST = 11;
-
 const server = express();
 
 server.use(bodyParser.json());

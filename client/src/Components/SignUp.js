@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import "./Stylesheets/auth.css";
-import { register } from "../Actions/auth";
+import { signup } from "../Actions/auth";
 
-class Register extends Component {
+class SignUp extends Component {
 
   renderAlert = () => {
     if (!this.props.error) return null;
@@ -12,7 +12,7 @@ class Register extends Component {
   };
   handleFormSubmit = ({ username, password, confirmPassword }) => {
     const { history } = this.props;
-    this.props.register(username, password, confirmPassword, history);
+    this.props.signup(username, password, confirmPassword, history);
   };
 
   render() {
@@ -32,7 +32,7 @@ class Register extends Component {
           <label>Confirm Password:</label>
           <Field name="confirmPassword" component="input" type="password" />
         </fieldset>
-        <button action="submit">Sign In</button>
+        <button action="submit">Sign Up</button>
         {this.renderAlert()}
       </form >
     );
@@ -46,9 +46,9 @@ const mapStateToProps = state => {
   };
 };
 
-Register = connect(mapStateToProps, { register })(Register);
+SignUp = connect(mapStateToProps, { signup })(SignUp);
 
 export default reduxForm({
   form: 'signup',
   fields: ['username', 'password', 'confirmPassword']
-})(Register);
+})(SignUp);

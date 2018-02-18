@@ -47,6 +47,7 @@ const routes = (server) => {
         const newUser = new User({ username, passwordHash });
         newUser.save((err, savedUser) => {
             if (err) {
+                console.log('err', err);
                 res.status(422);
                 res.json({ 'Need both username/PW fields': err.message });
                 return;

@@ -18,7 +18,7 @@ export const authError = error => {
     };
 };
 
-export const register = (username, password, confirmPassword, history) => {
+export const signup = (username, password, confirmPassword, history) => {
     return dispatch => {
         if (password !== confirmPassword) {
             dispatch(authError('Passwords do not match'));
@@ -30,9 +30,10 @@ export const register = (username, password, confirmPassword, history) => {
                 dispatch({
                     type: USER_REGISTERED
                 });
-                history.push('/home');
+                history.push('/signin');
             })
-            .catch(() => {
+            .catch((err) => {
+                console.log(err);
                 dispatch(authError('Failed to register user'));
             });
     };
@@ -42,7 +43,8 @@ export const signin = (username, password, history) => {
     return dispatch => {
         axios
             .post(`${ROOT_URL}/signin`, { username, password })
-            .then(() => {
+            .then((res) => {
+                console.log('res', res)
                 dispatch({
                     type: USER_AUTHENTICATED
                 });

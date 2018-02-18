@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 export default ComposedComponent => {
     class RequireAuthentication extends Component {
         componentWillMount() {
+            console.log('signed in', this.props.authenticated);
             if (!this.props.authenticated) {
                 this.props.history.push('/signin');
             }
@@ -13,7 +14,7 @@ export default ComposedComponent => {
             return (
                 <div>
                     {this.props.authenticated ? (
-                        <ComposedComponent users={this.props.users} />
+                        <ComposedComponent />
                     ) : null}
                 </div>
             );
