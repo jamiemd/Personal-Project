@@ -43,7 +43,8 @@ class Flashcards extends Component {
       return (
         <div className="wrapper">
           {/* <div>{this.props.flashcards.currentIndex}</div> */}
-          <div className="topWord" onClick={this.handleCardClick}>{currentFlashcard.english}</div>
+          <div className="topWord">{currentFlashcard.english}</div>
+          <button className="showAnswerButton" onClick={this.handleCardClick}>Show Answer</button>
         </div >
       );
     } else {
@@ -54,9 +55,9 @@ class Flashcards extends Component {
           <div className="divider" />
           <div className="bottomWord">{currentFlashcard.tagalog}</div>
           <div className="buttons">
-            <button className="button" onClick={this.handleButtonClick}>No</button>
-            <button className="button" onClick={this.handleButtonClick}>Ok</button>
-            <button className="button" onClick={this.handleButtonClick}>Yes</button>
+            <button className="gradeButtons" onClick={this.handleButtonClick}>No</button>
+            <button className="gradeButtons" onClick={this.handleButtonClick}>Ok</button>
+            <button className="gradeButtons" onClick={this.handleButtonClick}>Yes</button>
           </div>
         </div>
       );
