@@ -11,6 +11,10 @@ const FlashcardSchema = new mongoose.Schema({
   tagalog: {
     type: String,
     required: true
+  },
+  bucket: {
+    type: Number,
+    required: true
   }
 });
 

@@ -5,8 +5,8 @@ import "./Stylesheets/home.css";
 function AuthHome() {
   return (
     <div className="authhome">
-      <h1> Decks </h1>
-      <Link to="/deckhome">Days of the Week</Link>
+      <h1> Home </h1>
+      <Link to="/flashcards">Start</Link>
     </div>
   );
 }

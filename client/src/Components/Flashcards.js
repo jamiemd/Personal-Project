@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./Stylesheets/Flashcards.css";
-import { getCards, nextCard, showAnswer } from "../Actions/flashcards";
+import { getCards, nextCard, showAnswer, noPressed, yesPressed } from "../Actions/flashcards";
 import { Link } from "react-router-dom";
 
 class Flashcards extends Component {
@@ -9,8 +9,18 @@ class Flashcards extends Component {
     this.props.getCards();
   }
 
-  handleButtonClick = e => {
+  handleNoButtonClick = e => {
+    console.log('handleNoButtonClick called')
+    console.log('this.props', this.props);
     this.props.nextCard();
+    this.props.noPressed(this.props.flashcards.bucket);
+  };
+
+
+  handleYesButtonClick = e => {
+    console.log('handleYesButtonClick called')
+    this.props.nextCard();
+    this.props.yesPressed(this.props.flashcards.bucket);
   };
 
   handleCardClick = e => {
@@ -37,7 +47,7 @@ class Flashcards extends Component {
       );
 
     // if front side of card then return back
-    console.log('index', this.props.flashcards.currentIndex);
+    // console.log('index', this.props.flashcards.currentIndex);
 
     if (this.props.flashcards.cardSide === "front") {
       return (
@@ -55,9 +65,9 @@ class Flashcards extends Component {
           <div className="divider" />
           <div className="bottomWord">{currentFlashcard.tagalog}</div>
           <div className="buttons">
-            <button className="gradeButtons" onClick={this.handleButtonClick}>No</button>
-            <button className="gradeButtons" onClick={this.handleButtonClick}>Ok</button>
-            <button className="gradeButtons" onClick={this.handleButtonClick}>Yes</button>
+            <button className="gradeButtons" onClick={this.handleNoButtonClick}>No</button>
+            {/* <button className="gradeButtons" onClick={this.handleButtonClick}>Ok</button> */}
+            <button className="gradeButtons" onClick={this.handleYesButtonClick}>Yes</button>
           </div>
         </div>
       );
@@ -69,6 +79,6 @@ const mapStateToProps = state => {
   return { flashcards: state.flashcards };
 };
 
-export default connect(mapStateToProps, { getCards, nextCard, showAnswer })(
+export default connect(mapStateToProps, { getCards, nextCard, showAnswer, noPressed, yesPressed })(
   Flashcards
 );

@@ -44,7 +44,6 @@ export const signin = (username, password, history) => {
         axios
             .post(`${ROOT_URL}/signin`, { username, password })
             .then((res) => {
-                console.log('res', res)
                 dispatch({
                     type: USER_AUTHENTICATED
                 });

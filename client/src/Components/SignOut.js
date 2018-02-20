@@ -5,7 +5,6 @@ import { signout } from '../Actions/auth';
 
 class SignOut extends Component {
     componentWillMount() {
-        console.log('signoutprops', this.props);
         this.props.signout();
     }
 

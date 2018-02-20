@@ -94,6 +94,21 @@ const routes = (server) => {
         res.status(200).json(Flashcards);
     });
 
+    // get bucket
+    server.post("/api/updateBucket", (req, res) => {
+        const { bucket } = req.body;
+        res.status(200).json({ status: 'ok' });
+        newBucket.save((err, savedBucket) => {
+            if (err) {
+                console.log('err', err);
+                res.status(422);
+                res.json({ 'bucket doesnt work': err.message });
+                return;
+            }
+            res.json(savedUser);
+        });
+    });
+
 
 }
 

@@ -12,7 +12,7 @@ class HeaderLogo extends Component {
             return (
                 <Link className="link" to="/home">WikaKita</Link>
             )
-        };
+        }
     };
 };
 

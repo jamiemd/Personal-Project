@@ -1,9 +1,10 @@
-import { GET_CARDS, NEXT_CARD, TOGGLE_LANGUAGE, SHOW_ANSWER } from "../Actions/flashcards";
+import { GET_CARDS, NEXT_CARD, SHOW_ANSWER, NO_PRESSED, YES_PRESSED } from "../Actions/flashcards";
 
 const initialState = {
   data: [],
   currentIndex: 0,
-  cardSide: "front"
+  cardSide: "front",
+  bucket: "1"
 };
 
 export default (state = initialState, action) => {
@@ -33,18 +34,29 @@ export default (state = initialState, action) => {
         data: state.data,
         cardSide: "back"
       };
-      // case TOGGLE_LANGUAGE:
-      //   // console.log("state.currentLanguage", state.currentLanguage);
-      //   if (state.currentLanguage === "english") {
-      //     state.currentLanguage = "tagalog";
-      //   } else {
-      //     state.currentLanguage = "english";
-      //   }
+    case NO_PRESSED:
       return {
         ...state,
-        data: state.data,
-        currentLanguage: state.currentLanguage
+        bucket: state.bucket - 1,
       };
+    case YES_PRESSED:
+      return {
+        ...state,
+        bucket: state.bucket + 1,
+      };
+
+    // case TOGGLE_LANGUAGE:
+    //   // console.log("state.currentLanguage", state.currentLanguage);
+    //   if (state.currentLanguage === "english") {
+    //     state.currentLanguage = "tagalog";
+    //   } else {
+    //     state.currentLanguage = "english";
+    //   }
+    // return {
+    //   ...state,
+    //   data: state.data,
+    //   currentLanguage: state.currentLanguage
+    // };
     default:
       return state;
   }
