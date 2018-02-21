@@ -12,10 +12,16 @@ const FlashcardSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  bucket: {
+  currentBucket: {
     type: Number,
     required: true
+  },
+  ReviewDate: {
+    type: Date,
+    required: true,
+    default: Date.now
   }
 });
+
 
 module.exports = mongoose.model("Flashcard", FlashcardSchema);

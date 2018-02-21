@@ -55,14 +55,15 @@ export const signin = (username, password, history) => {
     };
 };
 
-export const signout = () => {
+export const signout = (history) => {
     return dispatch => {
         axios
-            .post(`${ROOT_URL}/signout`)
+            .post(`${ROOT_URL}/signout`, { history })
             .then(() => {
                 dispatch({
                     type: USER_UNAUTHENTICATED
                 });
+                history.push('/');
             })
             .catch(() => {
                 dispatch(authError('Failed to log you out'));

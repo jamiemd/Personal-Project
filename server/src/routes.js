@@ -77,7 +77,6 @@ const routes = (server) => {
         });
     });
 
-
     // get all flashcards
     server.get("/api/flashcards", (req, res) => {
         Flashcards.find({})
@@ -94,19 +93,18 @@ const routes = (server) => {
         res.status(200).json(Flashcards);
     });
 
-    // get bucket
-    server.post("/api/updateBucket", (req, res) => {
-        const { bucket } = req.body;
-        res.status(200).json({ status: 'ok' });
-        newBucket.save((err, savedBucket) => {
-            if (err) {
-                console.log('err', err);
-                res.status(422);
-                res.json({ 'bucket doesnt work': err.message });
-                return;
-            }
-            res.json(savedUser);
-        });
+
+    // update bucket
+    server.put("/api/updateBucket", function (req, res) {
+        console.log('req.body', req.body);
+        const { id, newBucket, newDate } = req.body;
+        Flashcards.findByIdAndUpdate(id, { currentBucket: newBucket }, newDate)
+            .then(function (bucket) {
+                res.status(200).json(bucket);
+            })
+            .catch(function () {
+                res.status(500).json({ error: "The information could not be updated" });
+            });
     });
 
 

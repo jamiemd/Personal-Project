@@ -11,12 +11,12 @@ class SignUp extends Component {
     return <h3>{this.props.error}</h3>;
   };
   handleFormSubmit = ({ username, password, confirmPassword }) => {
+    console.log('handleformsubmit called')
     const { history } = this.props;
     this.props.signup(username, password, confirmPassword, history);
   };
 
   render() {
-    console.log('this.props', this.props);
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} >

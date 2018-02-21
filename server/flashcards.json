@@ -1,22 +1,32 @@
 [
   {
     "english": "hello",
-    "tagalog": "kamusta"
+    "tagalog": "kamusta",
+    "currentBucket": 1
   },
   {
     "english": "name",
-    "tagalog": "pangalan"
+    "tagalog": "pangalan",
+    "currentBucket": 1
   },
   {
     "english": "smart",
-    "tagalog": "matalino"
+    "tagalog": "matalino",
+    "currentBucket": 1
   },
   {
     "english": "beautiful",
-    "tagalog": "maganda"
+    "tagalog": "maganda",
+    "currentBucket": 1
   },
   {
     "english": "handsome",
-    "tagalog": "guapo"
+    "tagalog": "guapo",
+    "currentBucket": 1
+  },
+  {
+    "english": "tomorrow",
+    "tagalog": "bukas",
+    "currentBucket": 1
   }
 ]

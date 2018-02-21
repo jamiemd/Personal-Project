@@ -25,7 +25,6 @@ class App extends Component {
               </div>
             </div>
             <div>
-              <Route exact path="/" component={SignOut} />
               <Route exact path="/" component={UnAuthHome} />
               <Route exact path="/home" component={RequireAuthentication(AuthHome)} />
               <Route exact path="/signin" component={SignIn} />

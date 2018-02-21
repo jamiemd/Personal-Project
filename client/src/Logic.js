@@ -8,3 +8,6 @@
 // performance rating: 1-5
 
 
+import Flashcards from "./Components/Flashcards";
+
+

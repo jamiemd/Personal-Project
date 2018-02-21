@@ -1,26 +1,44 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./Stylesheets/Flashcards.css";
-import { getCards, nextCard, showAnswer, noPressed, yesPressed } from "../Actions/flashcards";
+import { getCards, nextCard, showAnswer, updateBucket } from "../Actions/flashcards";
 import { Link } from "react-router-dom";
 
 class Flashcards extends Component {
+
   componentDidMount() {
     this.props.getCards();
   }
 
   handleNoButtonClick = e => {
-    console.log('handleNoButtonClick called')
-    console.log('this.props', this.props);
     this.props.nextCard();
-    this.props.noPressed(this.props.flashcards.bucket);
+    let dateNow = new Date();
+    let newDate = dateNow.setDate(dateNow.getDate() + 1);
+
+    let currentFlashcard = this.props.flashcards.data[this.props.flashcards.currentIndex];
+    let newBucket;
+    if (currentFlashcard.currentBucket <= 1) {
+      newBucket = 1;
+    } else {
+      newBucket = currentFlashcard.currentBucket - 1;
+    }
+    this.props.updateBucket(currentFlashcard._id, newBucket, newDate);
   };
 
-
   handleYesButtonClick = e => {
-    console.log('handleYesButtonClick called')
     this.props.nextCard();
-    this.props.yesPressed(this.props.flashcards.bucket);
+
+    let dateNow = new Date();
+    let newDate = dateNow.setDate(dateNow.getDate() + 1);
+
+    let currentFlashcard = this.props.flashcards.data[this.props.flashcards.currentIndex];
+    let newBucket;
+    if (currentFlashcard.currentBucket >= 5) {
+      newBucket = 5;
+    } else {
+      newBucket = currentFlashcard.currentBucket + 1;
+    }
+    this.props.updateBucket(currentFlashcard._id, newBucket, newDate);
   };
 
   handleCardClick = e => {
@@ -29,19 +47,19 @@ class Flashcards extends Component {
   };
 
   render() {
-
+    console.log('this.props', this.props);
 
     // if no cards then return null
+
     if (this.props.flashcards.data.length === 0) return null;
-    let currentFlashcard = this.props.flashcards.data[ //shorten
-      this.props.flashcards.currentIndex
-    ];
+    let currentFlashcard = this.props.flashcards.data[this.props.flashcards.currentIndex];
+
     // if deck of cards are finished then go to results page
     if (currentFlashcard === undefined)
       return (
         <div className="results">
           Results Page<div>
-            <Link to="/DeckHome">Home</Link>
+            <Link to="/home">Home</Link>
           </div>
         </div>
       );
@@ -79,6 +97,6 @@ const mapStateToProps = state => {
   return { flashcards: state.flashcards };
 };
 
-export default connect(mapStateToProps, { getCards, nextCard, showAnswer, noPressed, yesPressed })(
+export default connect(mapStateToProps, { getCards, nextCard, showAnswer, updateBucket })(
   Flashcards
 );

@@ -3,6 +3,15 @@ const fs = require("fs"); // read files on computer
 let savedCards = null;
 
 const Flashcards = require("./flashcards.js");
+const User = require("./user.js");
+
+Flashcards.remove({}, function (err) {
+  console.log('flashcard collection removed')
+});
+
+User.remove({}, function (err) {
+  console.log('users collection removed')
+});
 
 // read flashcards from json file
 const readCards = () => {
@@ -22,3 +31,4 @@ const populateCards = () => {
 
 // run node populate.js to populate initial data
 populateCards();
+

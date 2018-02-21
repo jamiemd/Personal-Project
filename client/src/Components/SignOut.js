@@ -4,15 +4,24 @@ import { connect } from 'react-redux';
 import { signout } from '../Actions/auth';
 
 class SignOut extends Component {
-    componentWillMount() {
-        this.props.signout();
+    handleSignOut() {
+        console.log('signout', this.props.history)
+        this.props.signout(this.props.history);
     }
 
     render() {
         return (
-            <Link className="link" to="/">Sign Out</Link>
+            <Link onClick={this.handleSignOut} className="link" to="/">Sign Out</Link>
         )
     }
 }
 
-export default connect(null, { signout })(SignOut);
+
+const mapStateToProps = state => {
+    return {
+        error: state.auth.error,
+        authenticated: state.auth.authenticated
+    };
+};
+
+export default connect(mapStateToProps, { signout })(SignOut);
