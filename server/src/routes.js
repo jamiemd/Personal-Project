@@ -79,8 +79,11 @@ const routes = (server) => {
 
     // get all flashcards
     server.get("/api/flashcards", (req, res) => {
-        Flashcards.find({})
+        let currentDate = new Date();
+        Flashcards
+            .find({ "ReviewDate": { "$lte": currentDate } })
             .then(function (flashcards) {
+                console.log('currentDate', currentDate);
                 res.status(200).json(flashcards);
             })
             .catch(function () {
@@ -88,17 +91,18 @@ const routes = (server) => {
             });
     });
 
-    // get all flashcards maybe?
-    server.get("/api/flashcards", (req, res) => {
-        res.status(200).json(Flashcards);
-    });
-
 
     // update bucket
     server.put("/api/updateBucket", function (req, res) {
-        console.log('req.body', req.body);
-        const { id, newBucket, newDate } = req.body;
-        Flashcards.findByIdAndUpdate(id, { currentBucket: newBucket }, newDate)
+        const { id, newBucket } = req.body;
+
+        let dateNow = new Date();
+        let newDate = new Date();
+        // console.log('datenow no', newDate);
+        newDate.setDate(dateNow.getDate() + 1);
+        console.log('datenow no +1', newDate);
+
+        Flashcards.findByIdAndUpdate(id, { currentBucket: newBucket, ReviewDate: newDate })
             .then(function (bucket) {
                 res.status(200).json(bucket);
             })
@@ -106,6 +110,7 @@ const routes = (server) => {
                 res.status(500).json({ error: "The information could not be updated" });
             });
     });
+
 
 
 }

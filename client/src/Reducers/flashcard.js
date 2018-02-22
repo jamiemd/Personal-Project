@@ -9,7 +9,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_CARDS:
-      console.log("action.payload.data", action.payload);
+      // console.log("action.payload.data", action.payload);
       return {
         ...state,
         data: action.payload,

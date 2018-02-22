@@ -34,11 +34,11 @@ export const showAnswer = () => {
   };
 };
 
-export const updateBucket = (id, newBucket, newDate) => {
-  console.log('updatebucket', id, newBucket, newDate);
+export const updateBucket = (id, newBucket) => {
+  // console.log('updatebucket', id, newBucket, newDate);
   return dispatch => {
     axios
-      .put(`${ROOT_URL}/updateBucket`, { id, newBucket, newDate })
+      .put(`${ROOT_URL}/updateBucket`, { id, newBucket })
       .then(res => {
         dispatch({
           type: UPDATE_BUCKET

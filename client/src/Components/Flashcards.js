@@ -12,8 +12,6 @@ class Flashcards extends Component {
 
   handleNoButtonClick = e => {
     this.props.nextCard();
-    let dateNow = new Date();
-    let newDate = dateNow.setDate(dateNow.getDate() + 1);
 
     let currentFlashcard = this.props.flashcards.data[this.props.flashcards.currentIndex];
     let newBucket;
@@ -22,14 +20,11 @@ class Flashcards extends Component {
     } else {
       newBucket = currentFlashcard.currentBucket - 1;
     }
-    this.props.updateBucket(currentFlashcard._id, newBucket, newDate);
+    this.props.updateBucket(currentFlashcard._id, newBucket);
   };
 
   handleYesButtonClick = e => {
     this.props.nextCard();
-
-    let dateNow = new Date();
-    let newDate = dateNow.setDate(dateNow.getDate() + 1);
 
     let currentFlashcard = this.props.flashcards.data[this.props.flashcards.currentIndex];
     let newBucket;
@@ -38,7 +33,7 @@ class Flashcards extends Component {
     } else {
       newBucket = currentFlashcard.currentBucket + 1;
     }
-    this.props.updateBucket(currentFlashcard._id, newBucket, newDate);
+    this.props.updateBucket(currentFlashcard._id, newBucket);
   };
 
   handleCardClick = e => {
@@ -47,8 +42,6 @@ class Flashcards extends Component {
   };
 
   render() {
-    console.log('this.props', this.props);
-
     // if no cards then return null
 
     if (this.props.flashcards.data.length === 0) return null;
