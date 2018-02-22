@@ -20,6 +20,7 @@ class Flashcards extends Component {
     } else {
       newBucket = currentFlashcard.currentBucket - 1;
     }
+    // console.log('currentFlashcard.currentBucket no', currentFlashcard.currentBucket);
     this.props.updateBucket(currentFlashcard._id, newBucket);
   };
 
@@ -33,6 +34,8 @@ class Flashcards extends Component {
     } else {
       newBucket = currentFlashcard.currentBucket + 1;
     }
+    // console.log('currentFlashcard.currentBucket yes', currentFlashcard.currentBucket);
+
     this.props.updateBucket(currentFlashcard._id, newBucket);
   };
 
@@ -43,8 +46,18 @@ class Flashcards extends Component {
 
   render() {
     // if no cards then return null
+    console.log('this.props', this.props)
 
-    if (this.props.flashcards.data.length === 0) return null;
+    if (this.props.flashcards.data.length === 0) {
+      return (
+        <div>There are no overdue cards<div>
+          <Link to="/home">Home</Link>
+        </div>
+        </div>
+      )
+
+    };
+
     let currentFlashcard = this.props.flashcards.data[this.props.flashcards.currentIndex];
 
     // if deck of cards are finished then go to results page

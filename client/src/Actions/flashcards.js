@@ -35,7 +35,7 @@ export const showAnswer = () => {
 };
 
 export const updateBucket = (id, newBucket) => {
-  // console.log('updatebucket', id, newBucket, newDate);
+  // console.log('updatebucket', id, newBucket);
   return dispatch => {
     axios
       .put(`${ROOT_URL}/updateBucket`, { id, newBucket })

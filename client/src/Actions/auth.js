@@ -40,6 +40,7 @@ export const signup = (username, password, confirmPassword, history) => {
 };
 
 export const signin = (username, password, history) => {
+    console.log('history', history);
     return dispatch => {
         axios
             .post(`${ROOT_URL}/signin`, { username, password })
