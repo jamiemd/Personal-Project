@@ -1,13 +1,31 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { getCards } from "../Actions/flashcards";
 import "./Stylesheets/home.css";
 
-function AuthHome() {
-  return (
-    <div className="authhome">
-      <h1> Home </h1>
-      <Link to="/flashcards">Start</Link>
-    </div>
-  );
+class AuthHome extends Component {
+
+  componentDidMount() {
+    this.props.getCards();
+  }
+
+  render() {
+    console.log('authome', this.props);
+    return (
+      <div className="authhome" >
+        <h1> Home </h1>
+        <Link to="/flashcards">Start</Link>
+        <div>
+
+        </div>
+      </div>
+    );
+  }
 }
-export default AuthHome;
+
+const mapStateToProps = state => {
+  return { flashcards: state.flashcards };
+};
+
+export default connect(mapStateToProps, { getCards })(AuthHome);

@@ -2,16 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./Stylesheets/Flashcards.css";
 import { getCards, nextCard, showAnswer, updateBucket } from "../Actions/flashcards";
-import { Link } from "react-router-dom";
 
 class Flashcards extends Component {
 
-  componentDidMount() {
-    this.props.getCards();
-  }
-
   handleNoButtonClick = e => {
     this.props.nextCard();
+
 
     let currentFlashcard = this.props.flashcards.data[this.props.flashcards.currentIndex];
     let newBucket;
@@ -46,29 +42,9 @@ class Flashcards extends Component {
 
   render() {
     // if no cards then return null
-    console.log('this.props', this.props)
-
-    if (this.props.flashcards.data.length === 0) {
-      return (
-        <div>There are no overdue cards<div>
-          <Link to="/home">Home</Link>
-        </div>
-        </div>
-      )
-
-    };
+    // console.log('flashcards this.props', this.props)
 
     let currentFlashcard = this.props.flashcards.data[this.props.flashcards.currentIndex];
-
-    // if deck of cards are finished then go to results page
-    if (currentFlashcard === undefined)
-      return (
-        <div className="results">
-          Results Page<div>
-            <Link to="/home">Home</Link>
-          </div>
-        </div>
-      );
 
     // if front side of card then return back
     // console.log('index', this.props.flashcards.currentIndex);

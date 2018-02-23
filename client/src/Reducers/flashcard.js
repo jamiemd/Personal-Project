@@ -1,26 +1,34 @@
-import { GET_CARDS, NEXT_CARD, SHOW_ANSWER } from "../Actions/flashcards";
+import { GET_CARDS, NEXT_CARD, SHOW_ANSWER, GET_STATS, RESET_CARD_STATE } from "../Actions/flashcards";
 
 const initialState = {
   data: [],
   currentIndex: 0,
   cardSide: "front",
+  showResultsPage: false,
 };
 
 export default (state = initialState, action) => {
+
   switch (action.type) {
     case GET_CARDS:
       // console.log("action.payload.data", action.payload);
       return {
         ...state,
         data: action.payload,
-        currentIndex: 0
+        currentIndex: 0,
       };
     case NEXT_CARD:
+      if (state.currentIndex === state.data.length - 1) {
+        return {
+          ...state,
+          showResultsPage: true,
+        };
+      }
       return {
         ...state,
         data: state.data,
         currentIndex: state.currentIndex + 1,
-        cardSide: "front"
+        cardSide: "front",
       };
     case SHOW_ANSWER:
       return {
@@ -28,6 +36,23 @@ export default (state = initialState, action) => {
         data: state.data,
         cardSide: "back"
       };
+    case RESET_CARD_STATE:
+      return {
+        ...state,
+        showResultsPage: false,
+      }
+    // case INCREASE_COUNT:
+    //   return {
+    //     ...state,
+    //     counter: state.counter + 1
+    //   };
+    case GET_STATS:
+      return {
+        ...state,
+        data: action.payload,
+      };
+
+
     // case TOGGLE_LANGUAGE:
     //   // console.log("state.currentLanguage", state.currentLanguage);
     //   if (state.currentLanguage === "english") {

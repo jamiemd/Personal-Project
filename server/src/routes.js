@@ -86,9 +86,10 @@ const routes = (server) => {
     server.get("/api/flashcards", (req, res) => {
         let currentDate = new Date();
         Flashcards
-            // .find({})
-            .find({ "ReviewDate": { "$lte": currentDate } })
+            .find({})
+            // .find({ "ReviewDate": { "$lte": currentDate } })
             .then(function (flashcards) {
+                console.log('flashcards', flashcards);
                 res.status(200).json(flashcards);
             })
             .catch(function () {
