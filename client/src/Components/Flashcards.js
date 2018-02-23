@@ -42,6 +42,7 @@ class Flashcards extends Component {
   };
 
   render() {
+    console.log('this.props flashcards', this.props)
     // if no cards then return null
     // console.log('flashcards this.props', this.props)
 
@@ -65,6 +66,7 @@ class Flashcards extends Component {
           <div className="topWord">{currentFlashcard.english}</div>
           <div className="divider" />
           <div className="bottomWord">{currentFlashcard.tagalog}</div>
+          <div className="rememberText">Did you remember it?</div>
           <div className="buttons">
             <button className="gradeButtons" onClick={this.handleNoButtonClick}>No</button>
             {/* <button className="gradeButtons" onClick={this.handleButtonClick}>Ok</button> */}

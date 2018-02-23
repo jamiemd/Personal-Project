@@ -11,10 +11,10 @@ class AuthHome extends Component {
   }
 
   render() {
-    console.log('authome', this.props);
+    // console.log('authome', this.props);
     return (
       <div className="homecontainer" >
-        <h1> Home </h1>
+        <h1> Welcome! </h1>
         <Link className="startLink" to="/flashcards">Start</Link>
         <div>
         </div>

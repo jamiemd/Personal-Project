@@ -50,10 +50,12 @@ class FlashcardContainer extends Component {
                 <div className="exitContainer">
                     <Link className="exit" to="/home">X</Link>
                 </div>
-                <div>There are no overdue cards
-            <Link to="/home">Home</Link>
+                <div className="overdueText">There are no overdue cards</div>
+                <div className="homeButtonContainer">
+                    <Link className="homeButton" to="/home">Home</Link>
                 </div>
-            </div>)
+            </div>
+        )
     };
 
 };

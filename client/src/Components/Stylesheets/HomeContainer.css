@@ -11,7 +11,7 @@
 
 h1 {
     padding-top: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
     color: orange;
 }
 
@@ -39,7 +39,7 @@ h2 {
 .button {
     text-decoration: none;
     margin-bottom: 30px;
-    color: grey;
+    color: white;
     border-radius: 15px;
     background-color: orange;
     line-height: 50px;
@@ -50,48 +50,55 @@ button {
     height: 40px;
     margin-top: 40px;
     margin-bottom: 30px;
-    border-radius: 15px;
+    border-radius: 1px;
     background-color: #4caf50;
     font-size: 15px;
-  }
-
-  .containerStyle {
-    width: 400px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .labels {
-    padding-top: 30px;
-    padding-bottom: 5px;
-    justify-content: flex-start;
-  }
-  
-  input {
-    width: 300px;
-    height: 30px;
-  }
-  
-  input[type="text"] {
-    font-size: 15px;
-  }
-
-  .headerLink {
-    text-decoration: none;
     color: white;
-    font-weight: 700;
-    letter-spacing: 0.0625em;
-    padding-top: 5px;
   }
 
-  .startLink {
-    text-decoration: none;
-    color: #32CD32;
-    font-size: 20px;
-    font-weight: 700;
-  }
-  
-  
+.containerStyle {
+  width: 400px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.labels {
+  padding-top: 30px;
+  padding-bottom: 5px;
+  justify-content: flex-start;
+}
+
+input {
+  width: 300px;
+  height: 30px;
+}
+
+input[type="text"] {
+  font-size: 15px;
+}
+
+.headerLink {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.0625em;
+  padding-top: 5px;
+}
+
+.startLink {
+  text-decoration: none;
+  color: #32CD32;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+fieldset {
+  border: 0;
+}
+
+.emailPadding {
+  padding-top: 30px;
+}

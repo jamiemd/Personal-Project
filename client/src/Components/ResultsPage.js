@@ -14,16 +14,16 @@ class ResultsPage extends Component {
         console.log('results this.props', this.props);
 
         return (
-            <div className="results" >
-                <div>
-                    <Link to="/home" onClick={this.handleHomeClick}>Home</Link>
-                </div >
+            <div className="resultsContainer" >
                 <div className="resultsText">
                     <div className="numberCorrect">{this.props.flashcards.correctAnswerCount}</div>
                     <div className="slash"> / </div>
                     <div>{this.props.flashcards.data.length}</div>
                 </div >
                 <div className="correctText">Correct</div>
+                <div className="homeButtonContainer">
+                    <Link className="homeButton" to="/home" onClick={this.handleHomeClick}>Home</Link>
+                </div >
             </div>
         );
     }
