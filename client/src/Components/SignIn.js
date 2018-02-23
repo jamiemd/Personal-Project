@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./Stylesheets/auth.css";
 import { reduxForm, Field } from 'redux-form';
 import { signin } from '../Actions/auth';
 import { connect } from 'react-redux';
+import "./Stylesheets/HomeContainer.css";
 
 class SignIn extends Component {
 

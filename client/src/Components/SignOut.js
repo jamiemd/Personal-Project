@@ -11,7 +11,7 @@ class SignOut extends Component {
 
     render() {
         return (
-            <Link onClick={this.handleSignOut} className="link" to="/">Sign Out</Link>
+            <Link onClick={this.handleSignOut} className="headerLink" to="/">Sign Out</Link>
         )
     }
 }

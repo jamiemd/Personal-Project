@@ -6,11 +6,11 @@ class HeaderLogo extends Component {
     render() {
         if (!this.props.authenticated) {
             return (
-                <Link className="link" to="/">WikaKita</Link>
+                <Link className="headerLink" to="/">WikaKita</Link>
             );
         } else {
             return (
-                <Link className="link" to="/home">WikaKita</Link>
+                <Link className="headerLink" to="/home">WikaKita</Link>
             )
         }
     };

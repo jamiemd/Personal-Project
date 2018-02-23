@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getStats } from "../Actions/flashcards";
-import "./Stylesheets/home.css";
+import "./Stylesheets/HomeContainer.css";
 
 class AuthHome extends Component {
 
@@ -13,9 +13,9 @@ class AuthHome extends Component {
   render() {
     console.log('authome', this.props);
     return (
-      <div className="authhome" >
+      <div className="homecontainer" >
         <h1> Home </h1>
-        <Link to="/flashcards">Start</Link>
+        <Link className="startLink" to="/flashcards">Start</Link>
         <div>
         </div>
       </div>

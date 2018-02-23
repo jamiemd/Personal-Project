@@ -1,26 +1,24 @@
-.text {
+.resultsText {
     display: flex;
     justify-content: center;
     margin-top: 100px;
+    font-size: 60px;
     color: grey;
 }
 
 .numberCorrect {
-    font-size: 40px;
+    color: orange;
 }
 
-.total {
-    font-size: 40px;
-}
-
-.centerText {
+.slash {
     margin-left: 10px;
     margin-right: 10px;
-    font-size: 40px;
 }
 
 .correctText {
-    font-size: 100px;
+    font-size: 40px;
+    color: grey;
+
 }
 
 

@@ -18,12 +18,12 @@ class ResultsPage extends Component {
                 <div>
                     <Link to="/home" onClick={this.handleHomeClick}>Home</Link>
                 </div >
-                <div className="text">
+                <div className="resultsText">
                     <div className="numberCorrect">{this.props.flashcards.correctAnswerCount}</div>
-                    <div className="centerText"> out of </div>
-                    <div className="total">{this.props.flashcards.data.length}</div>
+                    <div className="slash"> / </div>
+                    <div>{this.props.flashcards.data.length}</div>
                 </div >
-                <div classname="correctText">Correct</div>
+                <div className="correctText">Correct</div>
             </div>
         );
     }
