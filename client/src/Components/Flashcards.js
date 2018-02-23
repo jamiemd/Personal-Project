@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./Stylesheets/Flashcards.css";
-import { getCards, nextCard, showAnswer, updateBucket } from "../Actions/flashcards";
+import { nextCard, showAnswer, updateBucket, correctAnswerCount } from "../Actions/flashcards";
 
 class Flashcards extends Component {
 
@@ -22,6 +22,7 @@ class Flashcards extends Component {
 
   handleYesButtonClick = e => {
     this.props.nextCard();
+    this.props.correctAnswerCount();
 
     let currentFlashcard = this.props.flashcards.data[this.props.flashcards.currentIndex];
     let newBucket;
@@ -79,6 +80,6 @@ const mapStateToProps = state => {
   return { flashcards: state.flashcards };
 };
 
-export default connect(mapStateToProps, { getCards, nextCard, showAnswer, updateBucket })(
+export default connect(mapStateToProps, { nextCard, showAnswer, updateBucket, correctAnswerCount })(
   Flashcards
 );

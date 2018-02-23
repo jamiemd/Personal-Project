@@ -10,35 +10,33 @@ import { getCards, nextCard, showAnswer, updateBucket, resetCardState } from "..
 class FlashcardContainer extends Component {
 
     componentDidMount() {
+        console.log('this.props getcards', this.props)
         this.props.getCards();
     }
 
     render() {
-        // console.log('container props', this.props.flashcards);
 
-        if (this.props.flashcards.data === null) {
+        if (this.props.flashcards.data === undefined || this.props.flashcards.data === 0) {
             return (
                 null
             )
         };
 
-        if (this.props.flashcards.data === 0) {
+        if (this.props.flashcards.showResultsPage) {
             return (
-                <div>There are no overdue cards<div>
-                    <Link to="/home">Home</Link>
+                <div className="cardContainer">
+                    <div className="exitContainer">
+                        <Link className="exit" to="/home">X</Link>
+                    </div>
+                    <ResultsPage />
                 </div>
-                </div>
-            )
-        } else if (this.props.flashcards.showResultsPage) {
-            return (
-                <ResultsPage />
             );
         };
 
         let currentFlashcard = this.props.flashcards.data[this.props.flashcards.currentIndex];
         if (currentFlashcard) {
             return (
-                <div >
+                <div className="cardContainer">
                     <div className="exitContainer">
                         <Link className="exit" to="/home">X</Link>
                     </div>
@@ -47,7 +45,15 @@ class FlashcardContainer extends Component {
             )
         };
 
-        return (<div> no conditions met</div>)
+        return (
+            <div className="cardContainer">
+                <div className="exitContainer">
+                    <Link className="exit" to="/home">X</Link>
+                </div>
+                <div>There are no overdue cards
+            <Link to="/home">Home</Link>
+                </div>
+            </div>)
     };
 
 };

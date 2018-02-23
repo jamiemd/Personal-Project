@@ -89,7 +89,17 @@ const routes = (server) => {
             .find({})
             // .find({ "ReviewDate": { "$lte": currentDate } })
             .then(function (flashcards) {
-                console.log('flashcards', flashcards);
+                res.status(200).json(flashcards);
+            })
+            .catch(function () {
+                res.status(500).json({ error: "The information could not be retrieved" });
+            });
+    });
+
+    server.get("/api/getStats", (req, res) => {
+        Flashcards
+            .find({})
+            .then(function (flashcards) {
                 res.status(200).json(flashcards);
             })
             .catch(function () {
@@ -106,9 +116,9 @@ const routes = (server) => {
         let dateNow = new Date();
         let newDate = new Date();
         if (newBucket === 1) {
-            newDate.setDate(dateNow.getDate() + 1);
+            newDate.setDate(dateNow.getDate() + 0);
         } else if (newBucket === 2) {
-            newDate.setDate(dateNow.getDate() + 2);
+            newDate.setDate(dateNow.getDate() + 1);
         } else if (newBucket === 3) {
             newDate.setDate(dateNow.getDate() + 3);
         } else if (newBucket === 4) {

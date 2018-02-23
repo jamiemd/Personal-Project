@@ -1,0 +1,26 @@
+.text {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    color: grey;
+}
+
+.numberCorrect {
+    font-size: 40px;
+}
+
+.total {
+    font-size: 40px;
+}
+
+.centerText {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 40px;
+}
+
+.correctText {
+    font-size: 100px;
+}
+
+

@@ -1,6 +1,9 @@
+html {
+  background-color:#F8F8F8;
+  font: Helvetica, sans-serif
+}
 .App {
   margin: auto;
-  background-color:#F5F5F5;
 }
 
 .navContainer {
@@ -22,4 +25,14 @@
   text-decoration: none;
   color: white;
   margin-top: 5px;
+}
+
+.homeContainer {
+  margin: auto;
+  border-radius: 20px;
+  box-shadow:1px 1px 20px 1px #E8E8E8;  
+
+  width: 800px;
+  height: 1000px;
+  background-color: white;
 }

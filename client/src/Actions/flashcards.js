@@ -5,10 +5,9 @@ export const NEXT_CARD = "NEXT_CARD";
 export const SHOW_ANSWER = "SHOW_ANSWER";
 // export const TOGGLE_LANGUAGE = "TOGGLE_LANGUAGE";
 export const UPDATE_BUCKET = "UPDATE_BUCKET";
-export const GET_COUNT = "GET_COUNT";
 export const GET_STATS = "GET_STATS";
-export const INCREASE_COUNT = "INCREASE_COUNT"
 export const RESET_CARD_STATE = "RESET_CARD_STATE"
+export const CORRECT_ANSWER_COUNT = "CORRECT_ANSWER_COUNT"
 
 const ROOT_URL = 'http://localhost:5000/api';
 
@@ -19,7 +18,6 @@ export const getCards = () => {
     axios
       .get(apiUrl)
       .then(response => {
-        console.log('getcardsaction', response);
         dispatch({
           type: GET_CARDS,
           payload: response.data
@@ -40,15 +38,15 @@ export const showAnswer = () => {
   };
 };
 
-export const increaseCount = () => {
-  return {
-    type: INCREASE_COUNT,
-  };
-};
-
 export const resetCardState = () => {
   return {
     type: RESET_CARD_STATE,
+  }
+}
+
+export const correctAnswerCount = () => {
+  return {
+    type: CORRECT_ANSWER_COUNT,
   }
 }
 
@@ -66,14 +64,15 @@ export const updateBucket = (id, newBucket) => {
 };
 
 export const getStats = () => {
-  // console.log('updatebucket', id, newBucket);
   return dispatch => {
+    const apiUrl = `${ROOT_URL}/getStats`;
     axios
-      .get(`${ROOT_URL}/getStats`, {})
-      .then(res => {
+      .get(apiUrl)
+      .then(response => {
         dispatch({
           type: GET_STATS,
-        })
+          payload: response.data
+        });
       });
   };
 };
