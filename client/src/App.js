@@ -1,43 +1,33 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
-import UnAuthHome from "./Components/UnAuthHome";
-import AuthHome from "./Components/AuthHome";
-import SignUp from "./Components/SignUp";
-import SignIn from "./Components/SignIn";
+import Home from "./Components/Home";
+import SignUp from "./Components/Auth/SignUp";
+import SignIn from "./Components/Auth/SignIn";
+import Navigation from "./Components/Navigation";
 // import DeckHome from "./Components/DeckHome";
-import FlashcardContainer from "./Components/FlashcardContainer";
-import RequireAuthentication from './Components/HOC/RequiredAuth';
-import HeaderLogo from "./Components/HeaderLogo"
-import SignOut from "./Components/SignOut"
-
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <BrowserRouter>
-          <div>
-            <div className="navContainer">
-              <div className="nav">
-                <HeaderLogo />
-                <SignOut />
-              </div>
-            </div>
-            <div>
-              <Route exact path="/" component={UnAuthHome} />
-              <Route exact path="/home" component={RequireAuthentication(AuthHome)} />
-              <Route exact path="/signin" component={SignIn} />
-              <Route exact path="/signup" component={SignUp} />
-              {/* <Route exact path="/deckhome" component={RequireAuthentication(DeckHome)} /> */}
-              <Route exact path="/flashcards" component={RequireAuthentication(FlashcardContainer)} />
+      <BrowserRouter>
+        <div>
+          <Navigation />
+          <div className="navContainer">
+            <div className="nav">
+              <Navigation />
             </div>
           </div>
-        </BrowserRouter>
-      </div>
+          <div>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/signin" component={SignIn} />
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/flashcards" />
+          </div>
+        </div>
+      </BrowserRouter>
     );
   }
 }
 
 export default App;
-

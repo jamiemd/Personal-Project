@@ -1,19 +1,22 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
-const Schema = mongoose.Schema;
-
-mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/flashcards', { useMongoClient: true });
-
-const UserSchema = new Schema({
-    username: {
-        type: String,
-        unique: true,
-        required: true,
-    },
-    passwordHash: {
-        type: String,
-    }
+const UserSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true,
+    minLength: 8
+  }
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model("User", UserSchema);

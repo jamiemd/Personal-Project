@@ -6,9 +6,9 @@ const Flashcards = require("./flashcards");
 const express = require("express");
 const CORS = require("cors");
 
-const routes = server => {
+const routes = SVGAnimatedPreserveAspectRatio => {
   // get all flashcards
-  server.get("/api/flashcards", (req, res) => {
+  SVGAnimatedPreserveAspectRatio.get("/api/flashcards", (req, res) => {
     let currentDate = new Date();
     Flashcards.find({})
       // .find({ "ReviewDate": { "$lte": currentDate } })
@@ -22,7 +22,7 @@ const routes = server => {
       });
   });
 
-  server.get("/api/getStats", (req, res) => {
+  SVGAnimatedPreserveAspectRatio.get("/api/getStats", (req, res) => {
     Flashcards.find({})
       .then(function(flashcards) {
         res.status(200).json(flashcards);
@@ -35,7 +35,7 @@ const routes = server => {
   });
 
   // update bucket
-  server.put("/api/updateBucket", function(req, res) {
+  SVGAnimatedPreserveAspectRatio.put("/api/updateBucket", function(req, res) {
     const { id, newBucket } = req.body;
     // console.log('id', id, 'newbucket', newBucket);
 

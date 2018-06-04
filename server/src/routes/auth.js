@@ -1,16 +1,13 @@
-const server = require("./server.js");
+const app = require("./app.js");
 
-const { sendUserError, hashedPassword, loggedIn } = require("./middleware");
-
-const routes = server => {
+const routes = app => {
   // login
-  server.post("/login", passport.authenticate("local"), function(req, res) {
+  app.post("/login", passport.authenticate("local"), function(req, res) {
     res.redirect("/users/" + req.user.username);
   });
 
   // signup
-
-  server.post("/api/users/adduser", function(req, res) {
+  app.post("/api/users/adduser", function(req, res) {
     const newUser = new User(req.body);
     if (!newUser.username || !newUser.password || !newUser.email) {
       res.status(400).json({ error: "Missing required information" });
@@ -39,10 +36,22 @@ const routes = server => {
   });
 
   // logout
-  server.get("/logout", function(req, res) {
+  app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
   });
+
+  // authenticate route
+  app.get(
+    "/api/secret",
+    passport.authenticate("jwt", { session: false }),
+    function(req, res) {
+      res.json({
+        message: "Success! You can not see this without a token",
+        user: req.user
+      });
+    }
+  );
 };
 
 module.exports = routes;
